@@ -7,6 +7,7 @@ import os
 
 # Disable GPU warnings
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+tf.config.set_visible_devices([], 'GPU')
 
 app = Flask(__name__)
 hub_module = hub.load("https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2")
