@@ -4,6 +4,8 @@ import tensorflow_hub as hub
 import tensorflow as tf
 import numpy as np
 import os
+
+# Disable GPU warnings
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 app = Flask(__name__)
@@ -46,6 +48,7 @@ def style_transfer():
     style_path = "uploads/style_image.jpg"
 
     os.makedirs("uploads", exist_ok=True)
+    os.makedirs("output", exist_ok=True)
     content_image.save(content_path)
     style_image.save(style_path)
 
@@ -53,4 +56,5 @@ def style_transfer():
     return send_file(output_path, mimetype='image/jpeg')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
