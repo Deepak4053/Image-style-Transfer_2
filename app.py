@@ -53,4 +53,4 @@ def style_transfer():
     return send_file(output_path, mimetype='image/jpeg')
 
 if __name__ == '__main__':
-    app.run(debug=true)
+    app.run(debug=True)
