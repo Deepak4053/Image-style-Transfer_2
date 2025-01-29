@@ -4,6 +4,7 @@ import tensorflow_hub as hub
 import tensorflow as tf
 import numpy as np
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 app = Flask(__name__)
 hub_module = hub.load("https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2")
